@@ -22,7 +22,7 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Naive_Bayes_classifier):
 | Yes        | Married        | $120,000      | No                 |
 | No         | Divorced       | $95,000       | Yes                |
 | No         | Married        | $60,000       | No                 |
-| Yes        | Divorced       | $220,000      | No                 |
+| Yes         | Divorced       | $220,000      | No                 |
 | No         | Single         | $85,000       | Yes                |
 | No         | Married        | $75,000       | No                 |
 | No         | Single         | $90,000       | Yes                |
@@ -35,3 +35,19 @@ Figure 5.9, Page 230
 Please run with Python 3 or greater.
 
 `python main`
+
+## My Changes
+
+Fork of [gbroques/naive-bayes](https://github.com/gbroques/naive-bayes) (MIT License, preserved in this repo). All credit for the original implementation goes to the original author.
+
+My change (in `main.py`): added a **training-set accuracy report** to the demo. The original demo only predicted one record, so there was no way to tell whether the classifier was actually working. The demo now predicts all 10 loan-defaulter training records and prints the score before the original single prediction:
+
+```
+Training-set accuracy: 4/10 = 40.0%
+(Optimistic: the model was trained on these same records.)
+We predict this person will not default on their loans.
+```
+
+Honest note: 40% is low even for training data -- a useful reminder that a demo which looks fine can hide a weak model, and exactly why evaluation matters. (Accuracy on training data is normally optimistic; here it doubles as a sanity check.) The original test suite (18 tests) still passes.
+
+-- Muhammad Ahmad Farooq
